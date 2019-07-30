@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION["token"]))
+{
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -412,3 +418,9 @@
 </body>
 
 </html>
+<?php
+}
+else{
+    header('location:login.php');
+}
+?>
