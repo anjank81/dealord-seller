@@ -26,5 +26,8 @@ $url ="http://api.dealord.com/getcategories?id";
                         }
 ?>
 <?php if(sizeof($cat)> 0){ ?>
-<div class="col-sm-6 form-group mb-4"><label>Sub Category</label><div><select class="selectpicker show-tick form-control" title="Please select" data-style="btn-solid" name="main_category" id="cat"><?php foreach ($main_cat as $key => $value){?><option value="<?php echo $key;?>"><?php echo $value;?></option><?php }?></select></div></div>
+<label>Sub Category</label>
+<select class="show-tick form-control" title="Please select" data-style="btn-solid" name="sub_category" id='cat1'>
+<?php foreach ($cat as $key => $value){?><option value="<?php echo $key;?>"><?php echo $value;?></option><?php }?>
+</select> 
 <?php }?>

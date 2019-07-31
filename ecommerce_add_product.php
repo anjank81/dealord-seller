@@ -294,7 +294,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                         <label>Product Name</label>
                                         <input class="form-control form-control-solid" type="text" placeholder="Enter Product Name">
                                     </div>
-                                    <div class="row" id ="c">
+                                    <div class="row">
                                         <div class="col-sm-6 form-group mb-4">
                                             <label>Category</label>
                                             <div>
@@ -308,7 +308,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                                 </select>
                                             </div>
                                         </div>
-                                        <div id ="ca"></div>
+                                        <div class="col-sm-6 form-group mb-4" id="sub1"></div>
                                         <!-- <div class="col-sm-6 form-group mb-4">
                                             <label>SKU</label>
                                             <input class="form-control form-control-solid" type="text" placeholder="SKU Number">
@@ -407,10 +407,32 @@ $url ="http://api.dealord.com/getcategories?id";
             url: "getsubcat.php?id="+id,
             type: 'get',
             success: function(response) { 
-                console.log(response);
-                $('#ca').append(response);
+                if(response !=null){
+                    $('#sub1').html(response);
+                }else{
+                    $('#sub1').html('');
+                }
                 }
     });
+        });
+        
+    </script>
+    <script>
+        $('#cat1').change(function(){
+            alert("Hello");
+    //         var id = $(this).children("option:selected").val();
+    //         $.ajax({
+    //         url: "getsubcat.php?id="+id,
+    //         type: 'get',
+    //         success: function(response) { 
+    //             console.log(response);
+    //             if(response !=null){
+    //                 $('#sub1').html(response);
+    //             }else{
+    //                 $('#sub1').html('');
+    //             }
+    //             }
+    // });
         });
         
     </script>

@@ -252,7 +252,6 @@ if (isset($_SESSION["token"]))
                                 </div>
                                 <div>
                                     <h3 class="font-strong text-success">128</h3>
-                                    <?php echo $_SESSION['token'];?>
                                     <div class="text-muted">NEW ORDERS</div>
                                 </div>
                             </div>
