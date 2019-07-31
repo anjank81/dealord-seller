@@ -46,7 +46,7 @@ if (isset($_SESSION["token"]))
                             </li>
                             <li>
                                 <div class="page-brand">
-                                    <a class="link" href="index.html">
+                                    <a class="link" href="index.php">
                                         <span class="brand">DeaLord
                                             <span class="brand-tip"> SELLER</span>
                                         </span>
@@ -165,10 +165,10 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_add_product.html">Add new product</a>
+                                    <a class="dropdown-item" href="ecommerce_add_product.php">Add new product</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_products_list.html">Products list</a>
+                                    <a class="dropdown-item" href="ecommerce_products_list.php">Products list</a>
                                 </li>
                             </ul>
                         </li>
@@ -195,13 +195,13 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_orders_list.html">Orders list</a>
+                                    <a class="dropdown-item" href="ecommerce_orders_list.php">Orders list</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_order_details.html">Order details</a>
+                                    <a class="dropdown-item" href="ecommerce_order_details.php">Order details</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="invoice.html">Invoice</a>
+                                    <a class="dropdown-item" href="invoice.php">Invoice</a>
                                 </li>
                             </ul>
                         </li>
@@ -210,7 +210,7 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_customers.html">Customers</a>
+                                    <a class="dropdown-item" href="ecommerce_customers.php">Customers</a>
                                 </li>
                             </ul>
                         </li>
@@ -219,10 +219,10 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="mailbox.html"><i class="navbar-item-icon ti-email"></i>Mailbox</a>
+                                    <a class="dropdown-item" href="mailbox.php"><i class="navbar-item-icon ti-email"></i>Mailbox</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="calendar.html"><i class="navbar-item-icon ti-calendar"></i>Calendar</a>
+                                    <a class="dropdown-item" href="calendar.php"><i class="navbar-item-icon ti-calendar"></i>Calendar</a>
                                 </li>
                             </ul>
                         </li>
@@ -231,7 +231,7 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="icons.html"><i class="navbar-item-icon ti-comments-smiley"></i>Icons</a>
+                                    <a class="dropdown-item" href="icons.php"><i class="navbar-item-icon ti-comments-smiley"></i>Icons</a>
                                 </li>
                             </ul>
                         </li>
