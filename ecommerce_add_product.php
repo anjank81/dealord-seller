@@ -1,8 +1,30 @@
 <?php
 session_start();
+include_once('vendor/autoload.php');
 if (isset($_SESSION["token"]))
 {
+    function apicall($url)
+    {
+        $headers = array('Authorization' =>'token c1ad8870c1d535ebbe02e0eb5c9ee3df6a14b312');
+        $response = Unirest\Request::get($url, $headers);
+        return $response;
+    }
+$url ="http://api.dealord.com/getcategories?id";
+                        $res = apicall($url);
+                        $result = $res->body;
+                        $main_cat= array();
+                        // print_r($result);
+                        for ($i=0;$i<sizeof($result);$i++)
+                        {
+                            $id = $result[$i]->id;
+                            $cname = $result[$i]->c_name;
+                            $parent_id  =$result[$i]->parent_id;
+                            if($parent_id == null)
+                            {                        
+                                $main_cat[$id] = $cname;
+                            }
 
+                        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -272,29 +294,25 @@ if (isset($_SESSION["token"]))
                                         <label>Product Name</label>
                                         <input class="form-control form-control-solid" type="text" placeholder="Enter Product Name">
                                     </div>
-                                    <div class="row">
+                                    <div class="row" id ="c">
                                         <div class="col-sm-6 form-group mb-4">
                                             <label>Category</label>
                                             <div>
-                                                <select class="selectpicker show-tick form-control" title="Please select" data-style="btn-solid">
-                                                    <optgroup label="Electronics">
-                                                        <option>TV & Video</option>
-                                                        <option>Cameras & Photo</option>
-                                                        <option>Computers & Tablets</option>
-                                                    </optgroup>
-                                                    <optgroup label="Fashion">
-                                                        <option>Health & Beauty</option>
-                                                        <option>Shoes</option>
-                                                        <option>Handbags & Purses</option>
-                                                        <option>Jewelry and Watches</option>
-                                                    </optgroup>
+                                                <select class="selectpicker show-tick form-control" title="Please select" data-style="btn-solid" name="main_category" id="cat">
+                                                    <?php
+                                                    foreach ($main_cat as $key => $value)
+                                                    {?>
+                                                    <option value="<?php echo $key;?>"><?php echo $value;?></option>
+                                                <?php }
+                                                ?>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 form-group mb-4">
+                                        <div id ="ca"></div>
+                                        <!-- <div class="col-sm-6 form-group mb-4">
                                             <label>SKU</label>
                                             <input class="form-control form-control-solid" type="text" placeholder="SKU Number">
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 form-group mb-4">
@@ -381,6 +399,20 @@ if (isset($_SESSION["token"]))
             });
             $('.tagsinput.form-control-solid').siblings('.bootstrap-tagsinput').addClass('form-control-solid');
         });
+    </script>
+    <script>
+        $('#cat').change(function(){
+            var id = $(this).children("option:selected").val();
+            $.ajax({
+            url: "getsubcat.php?id="+id,
+            type: 'get',
+            success: function(response) { 
+                console.log(response);
+                $('#ca').append(response);
+                }
+    });
+        });
+        
     </script>
 </body>
 
