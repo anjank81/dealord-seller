@@ -289,7 +289,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                 </div>
                             </div>
                             <div class="col-lg-8">
-                                <form action="javascript:;">
+                                <form action="testaction.php">
                                     <div class="form-group mb-4">
                                         <label>Product Name</label>
                                         <input class="form-control form-control-solid" type="text" placeholder="Enter Product Name">
@@ -298,7 +298,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                         <div class="col-sm-6 form-group mb-4">
                                             <label>Category</label>
                                             <div>
-                                                <select class="selectpicker show-tick form-control" title="Please select" data-style="btn-solid" name="main_category" id="cat">
+                                                <select class="selectpicker show-tick form-control" title="Please select" data-style="btn-solid" name="main_category" id="main_category">
                                                     <?php
                                                     foreach ($main_cat as $key => $value)
                                                     {?>
@@ -308,7 +308,22 @@ $url ="http://api.dealord.com/getcategories?id";
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 form-group mb-4" id="sub1"></div>
+                                        <div class="col-sm-6 form-group mb-4" id ="sb1">
+                                            <label>Sub Category1</label>
+                                            <div>
+                                                <select class="show-tick form-control" title="Please select" data-style="btn-solid" name="sub_category1" id="sub_category1">
+                                                <option value="">Select Sub Category</option>   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 form-group mb-4" id="sb2">
+                                            <label>Sub Category2</label>
+                                            <div>
+                                                <select class="show-tick form-control" title="Please select" data-style="btn-solid" name="sub_category2" id="sub_category2">
+                                                <option value="">Select Sub Category</option>   
+                                                </select>
+                                            </div>
+                                        </div>
                                         <!-- <div class="col-sm-6 form-group mb-4">
                                             <label>SKU</label>
                                             <input class="form-control form-control-solid" type="text" placeholder="SKU Number">
@@ -401,40 +416,56 @@ $url ="http://api.dealord.com/getcategories?id";
         });
     </script>
     <script>
-        $('#cat').change(function(){
-            var id = $(this).children("option:selected").val();
-            $.ajax({
-            url: "getsubcat.php?id="+id,
-            type: 'get',
-            success: function(response) { 
-                if(response !=null){
-                    $('#sub1').html(response);
-                }else{
-                    $('#sub1').html('');
+        $().ready(function() {
+            $('#sb1,#sb2').hide();
+            $( "#main_category" ).change(function() {
+                var id = $( "#main_category" ).val();
+                // $("#country option[value='0']").remove();
+                $.ajax({ url: "getsubcat.php",
+                data: {id: id},
+                type: 'get',
+                async: false,
+                success:
+                function(msg) {
+                        if (typeof(msg) == "string"){
+                            $('#sb1,#sb2').hide();
+                        }
+                        else{
+                            $('#sb1').show();
+                        // $('#sub_category1').find('option').remove().end();
+                        $.each(msg, function( index, value ) {
+                        $('#sub_category1').append('<option value="'+index+'">'+value+'</option>');
+                        });
+                        } 
                 }
-                }
-    });
+                });
+	});
         });
-        
     </script>
     <script>
-        $('#cat1').change(function(){
-            alert("Hello");
-    //         var id = $(this).children("option:selected").val();
-    //         $.ajax({
-    //         url: "getsubcat.php?id="+id,
-    //         type: 'get',
-    //         success: function(response) { 
-    //             console.log(response);
-    //             if(response !=null){
-    //                 $('#sub1').html(response);
-    //             }else{
-    //                 $('#sub1').html('');
-    //             }
-    //             }
-    // });
+        $().ready(function() {
+            $( "#sub_category1" ).change(function() {
+                var id = $( "#sub_category1" ).val();
+                $.ajax({ url: "getsubcat.php",
+                data: {id: id},
+                type: 'get',
+                async: false,
+                success:
+                function(msg) {
+                        if (typeof(msg) == "string"){
+                            $('#sb2').hide();
+                        }
+                        else{
+                            $('#sb2').show();
+                        // $('#sub_category2').find('option').remove().end();
+                        $.each(msg, function( index, value ) {
+                        $('#sub_category2').append('<option value="'+index+'">'+value+'</option>');
+                        });
+                        } 
+                }
+                });
+	});
         });
-        
     </script>
 </body>
 

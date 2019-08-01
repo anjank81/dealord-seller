@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: application/json");
 session_start();
 include_once('vendor/autoload.php');
 $cat_id =$_GET['id'];
@@ -25,9 +26,10 @@ $url ="http://api.dealord.com/getcategories?id";
 
                         }
 ?>
-<?php if(sizeof($cat)> 0){ ?>
-<label>Sub Category</label>
-<select class="show-tick form-control" title="Please select" data-style="btn-solid" name="sub_category" id='cat1'>
-<?php foreach ($cat as $key => $value){?><option value="<?php echo $key;?>"><?php echo $value;?></option><?php }?>
-</select> 
-<?php }?>
+<?php if(sizeof($cat)> 0){ 
+echo json_encode($cat );
+}
+else{
+    echo json_encode("error: O results" );
+}
+?>
