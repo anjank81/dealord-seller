@@ -334,11 +334,11 @@ $url ="http://api.dealord.com/getcategories?id";
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-6 form-group mb-4" id ="Length Unit">
+                                        <div class="col-sm-6 form-group mb-4" id ="Length_Unit">
                                             <label>Length Unit</label>
                                             <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
                                         </div>
-                                        <div class="col-sm-6 form-group mb-4" id="Weight unit">
+                                        <div class="col-sm-6 form-group mb-4" id="Weight_unit">
                                                 <label>Wieght Unit</label>
                                                 <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
                                         </div>
@@ -369,6 +369,32 @@ $url ="http://api.dealord.com/getcategories?id";
                                         <div class="col-sm-3 form-group mb-4" id="weight">
                                                 <label>Weight</label>
                                                 <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 form-group mb-4" id ="color">
+                                            <label>Color</label>
+                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                        <div class="col-sm-4 form-group mb-4" id="warranty">
+                                                <label>Warranty</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                        <div class="col-sm-4 form-group mb-4" id="warranty_type">
+                                                <label>Warranty_type</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 form-group mb-4" id ="description">
+                                            <label>description</label>
+                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 form-group mb-4" id ="extra_feature">
+                                            <label>extra_feature</label>
+                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
                                         </div>
                                     </div>
                                 </form>
@@ -432,8 +458,17 @@ $url ="http://api.dealord.com/getcategories?id";
                             
                         }
                         else{
+                            $('#Length Unit').hide();
                             $.each(msg, function( index, value ) {
-                                alert(index);
+                                if(index == 'Length Unit' )
+                                {
+                                    index="Length_Unit";
+                                }
+                                if(index == 'Weight unit' )
+                                {
+                                    index="Weight_unit";
+                                }
+                                $('#'+index).show();
                         });
                         } 
                 }
@@ -442,7 +477,7 @@ $url ="http://api.dealord.com/getcategories?id";
     </script>
     <script>
         $().ready(function() {
-            $('#sb1,#sb2').hide();
+            $('#sb1,#sb2,#Length_Unit,#Weight_unit,#p_name,#sc_id,#price,#brand,#length,#height,#width,#weight,#color,#description,#warranty,#warranty_type,#extra_feature').hide();
             $( "#main_category" ).change(function() {
                 var id = $( "#main_category" ).val();
                 // $("#country option[value='0']").remove();
