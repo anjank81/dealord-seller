@@ -431,8 +431,9 @@ $url ="http://api.dealord.com/getcategories?id";
                             $('#sb1,#sb2').hide();
                         }
                         else{
-                            $('#sb1').show();
-                        // $('#sub_category1').find('option').remove().end();
+                        $('#sb1').show();
+                        $('#sub_category1').find('option').remove().end();
+                        $('#sub_category1').append('<option value="">Select Sub Category</option>');
                         $.each(msg, function( index, value ) {
                         $('#sub_category1').append('<option value="'+index+'">'+value+'</option>');
                         });
@@ -456,8 +457,9 @@ $url ="http://api.dealord.com/getcategories?id";
                             $('#sb2').hide();
                         }
                         else{
-                            $('#sb2').show();
-                        // $('#sub_category2').find('option').remove().end();
+                        $('#sb2').show();
+                        $('#sub_category2').find('option').remove().end();
+                        $('#sub_category2').append('<option value="">Select Sub Category</option>');
                         $.each(msg, function( index, value ) {
                         $('#sub_category2').append('<option value="'+index+'">'+value+'</option>');
                         });
