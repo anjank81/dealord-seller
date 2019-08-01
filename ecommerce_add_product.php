@@ -290,15 +290,13 @@ $url ="http://api.dealord.com/getcategories?id";
                             </div>
                             <div class="col-lg-8">
                                 <form action="testaction.php">
-                                    <div class="form-group mb-4">
-                                        <label>Product Name</label>
-                                        <input class="form-control form-control-solid" type="text" placeholder="Enter Product Name">
-                                    </div>
+                                    
                                     <div class="row">
-                                        <div class="col-sm-6 form-group mb-4">
+                                        <div class="col-sm-4 form-group mb-4">
                                             <label>Category</label>
                                             <div>
-                                                <select class="selectpicker show-tick form-control" title="Please select" data-style="btn-solid" name="main_category" id="main_category">
+                                                <select class="show-tick form-control" title="Please select" data-style="btn-solid" name="main_category" id="main_category">
+                                                <option value="">Select Category</option>  
                                                     <?php
                                                     foreach ($main_cat as $key => $value)
                                                     {?>
@@ -308,7 +306,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 form-group mb-4" id ="sb1">
+                                        <div class="col-sm-4 form-group mb-4" id ="sb1">
                                             <label>Sub Category1</label>
                                             <div>
                                                 <select class="show-tick form-control" title="Please select" data-style="btn-solid" name="sub_category1" id="sub_category1">
@@ -316,7 +314,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 form-group mb-4" id="sb2">
+                                        <div class="col-sm-4 form-group mb-4" id="sb2">
                                             <label>Sub Category2</label>
                                             <div>
                                                 <select class="show-tick form-control" title="Please select" data-style="btn-solid" name="sub_category2" id="sub_category2">
@@ -324,48 +322,54 @@ $url ="http://api.dealord.com/getcategories?id";
                                                 </select>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-sm-6 form-group mb-4">
-                                            <label>SKU</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="SKU Number">
-                                        </div> -->
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4 form-group mb-4">
+                                        <div class="col-sm-6 form-group mb-4" id="p_name">
+                                            <label>Product Name</label>
+                                            <input class="form-control form-control-solid" type="text" placeholder="Enter Product Name" name="p_name">
+                                        </div>
+                                        <div class="col-sm-6 form-group mb-4" id ="sc_id">
+                                            <label>SKU</label>
+                                            <input class="form-control form-control-solid" type="text" placeholder="SKU Number" name ="sc_id" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 form-group mb-4" id ="Length Unit">
+                                            <label>Length Unit</label>
+                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                        <div class="col-sm-6 form-group mb-4" id="Weight unit">
+                                                <label>Wieght Unit</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 form-group mb-4" id ="price">
                                             <label>Price</label>
                                             <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
                                         </div>
-                                        <div class="col-sm-4 form-group mb-4">
-                                            <label>Currency </label>
-                                            <div>
-                                                <select class="selectpicker show-tick form-control" title="Please select" data-style="btn-solid">
-                                                    <option>USD</option>
-                                                    <option>Euro</option>
-                                                    <option>Rouble</option>
-                                                    <option>Pound</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 form-group mb-4">
-                                            <label>Quantity</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Quantity">
+                                        <div class="col-sm-6 form-group mb-4" id="brand">
+                                                <label>Brand</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
                                         </div>
                                     </div>
-                                    <div class="form-group mb-4">
-                                        <label>Tags</label>
-                                        <input class="tagsinput form-control form-control-solid" type="text" placeholder="Tags" value="Fashion,Dress,Broadway,Autumn collection,Shop">
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label>Description</label>
-                                        <textarea class="form-control form-control-solid" rows="4" placeholder="Description"></textarea>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label class="ui-switch switch-icon mr-3 mb-0">
-                                            <input type="checkbox" checked="">
-                                            <span></span>
-                                        </label>Available</div>
-                                    <div class="text-right">
-                                        <button class="btn btn-primary btn-air mr-2">Save</button>
-                                        <button class="btn btn-secondary">Cancel</button>
+                                    <div class="row">
+                                        <div class="col-sm-3 form-group mb-4" id ="price">
+                                            <label>Price</label>
+                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                        <div class="col-sm-3 form-group mb-4" id="length">
+                                                <label>Length</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                        <div class="col-sm-3 form-group mb-4" id ="width">
+                                            <label>Width</label>
+                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
+                                        <div class="col-sm-3 form-group mb-4" id="weight">
+                                                <label>Weight</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -416,6 +420,27 @@ $url ="http://api.dealord.com/getcategories?id";
         });
     </script>
     <script>
+    function getextrafields(id){
+        $.ajax({ url: "getsubcatattr.php",
+                data: {id: id},
+                type: 'get',
+                async: false,
+                success:
+                function(msg) {
+                    console.log(msg);
+                        if (typeof(msg) == "string"){
+                            
+                        }
+                        else{
+                            $.each(msg, function( index, value ) {
+                                alert(index);
+                        });
+                        } 
+                }
+                });
+    }
+    </script>
+    <script>
         $().ready(function() {
             $('#sb1,#sb2').hide();
             $( "#main_category" ).change(function() {
@@ -429,6 +454,7 @@ $url ="http://api.dealord.com/getcategories?id";
                 function(msg) {
                         if (typeof(msg) == "string"){
                             $('#sb1,#sb2').hide();
+                            getextrafields(id);
                         }
                         else{
                         $('#sb1').show();
@@ -455,6 +481,7 @@ $url ="http://api.dealord.com/getcategories?id";
                 function(msg) {
                         if (typeof(msg) == "string"){
                             $('#sb2').hide();
+                            getextrafields(id);
                         }
                         else{
                         $('#sb2').show();
@@ -463,6 +490,26 @@ $url ="http://api.dealord.com/getcategories?id";
                         $.each(msg, function( index, value ) {
                         $('#sub_category2').append('<option value="'+index+'">'+value+'</option>');
                         });
+                        } 
+                }
+                });
+	});
+        });
+    </script>
+    <script>
+        $().ready(function() {
+            $( "#sub_category2" ).change(function() {
+                var id = $( "#sub_category2" ).val();
+                $.ajax({ url: "getsubcat.php",
+                data: {id: id},
+                type: 'get',
+                async: false,
+                success:
+                function(msg) {
+                        if (typeof(msg) == "string"){
+                            getextrafields(id);
+                        }
+                        else{
                         } 
                 }
                 });
