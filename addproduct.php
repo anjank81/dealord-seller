@@ -124,10 +124,10 @@ else{
     if ($code == 200)
     {
         $msg = "Product".$body."Sucessfully Created";
-        header("location:ecommerce_add_product.php?msg=$msg")
+        header("location:ecommerce_add_product.php?msg=$msg");
     }
     else{
         $msg = "Error while creating product";
-        header("location:ecommerce_add_product.php?msg=$msg")
+        header("location:ecommerce_add_product.php?msg=$msg");
     }
 }
