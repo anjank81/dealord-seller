@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,AAAC,CACR,IAAI,CAAE,eAAe,CACtB",
+    "sources": [
+        "../../assets/vendors/c3/src/scss/title.scss"
+    ],
+    "names": [],
+    "file": "title.min.css"
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../assets/vendors/c3/src/scss/axis.scss"
+    ],
+    "names": [],
+    "file": "axis.min.css"
+}

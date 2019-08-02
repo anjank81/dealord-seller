@@ -68,7 +68,7 @@ $url ="http://api.dealord.com/getcategories?id";
                             </li>
                             <li>
                                 <div class="page-brand">
-                                    <a class="link" href="index.html">
+                                    <a class="link" href="index.php">
                                         <span class="brand">DeaLord
                                             <span class="brand-tip"> SELLER</span>
                                         </span>
@@ -187,10 +187,10 @@ $url ="http://api.dealord.com/getcategories?id";
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item active" href="ecommerce_add_product.html">Add new product</a>
+                                    <a class="dropdown-item active" href="ecommerce_add_product.php">Add new product</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_products_list.html">Products list</a>
+                                    <a class="dropdown-item" href="ecommerce_products_list.php">Products list</a>
                                 </li>
                             </ul>
                         </li>
@@ -199,7 +199,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="colors.html">Colors</a>
+                                    <a class="dropdown-item" href="colors.php">Colors</a>
                                 </li>
                             </ul>
                         </li>
@@ -208,7 +208,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="toastr.html">Toastr Notifications</a>
+                                    <a class="dropdown-item" href="toastr.php">Toastr Notifications</a>
                                 </li>
                             </ul>
                         </li>
@@ -217,13 +217,13 @@ $url ="http://api.dealord.com/getcategories?id";
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_orders_list.html">Orders list</a>
+                                    <a class="dropdown-item" href="ecommerce_orders_list.php">Orders list</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_order_details.html">Order details</a>
+                                    <a class="dropdown-item" href="ecommerce_order_details.php">Order details</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="invoice.html">Invoice</a>
+                                    <a class="dropdown-item" href="invoice.php">Invoice</a>
                                 </li>
                             </ul>
                         </li>
@@ -232,7 +232,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_customers.html">Customers</a>
+                                    <a class="dropdown-item" href="ecommerce_customers.php">Customers</a>
                                 </li>
                             </ul>
                         </li>
@@ -241,10 +241,10 @@ $url ="http://api.dealord.com/getcategories?id";
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="mailbox.html"><i class="navbar-item-icon ti-email"></i>Mailbox</a>
+                                    <a class="dropdown-item" href="mailbox.php"><i class="navbar-item-icon ti-email"></i>Mailbox</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="calendar.html"><i class="navbar-item-icon ti-calendar"></i>Calendar</a>
+                                    <a class="dropdown-item" href="calendar.php"><i class="navbar-item-icon ti-calendar"></i>Calendar</a>
                                 </li>
                             </ul>
                         </li>
@@ -253,7 +253,7 @@ $url ="http://api.dealord.com/getcategories?id";
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="icons.html"><i class="navbar-item-icon ti-comments-smiley"></i>Icons</a>
+                                    <a class="dropdown-item" href="icons.php"><i class="navbar-item-icon ti-comments-smiley"></i>Icons</a>
                                 </li>
                             </ul>
                         </li>
@@ -289,13 +289,19 @@ $url ="http://api.dealord.com/getcategories?id";
                                 </div>
                             </div>
                             <div class="col-lg-8">
-                                <form action="testaction.php">
-                                    
+                                <form action="addproduct.php" method="post">
+                                    <?php
+                                    $msg = $_GET['msg']?? '';
+                                    if ($msg !=null)
+                                    {
+                                        echo "<span style='color:red;'><h5>".$msg."</h5></span><hr/>";
+                                    }
+                                    ?>
                                     <div class="row">
                                         <div class="col-sm-4 form-group mb-4">
                                             <label>Category</label>
                                             <div>
-                                                <select class="show-tick form-control" title="Please select" data-style="btn-solid" name="main_category" id="main_category">
+                                                <select class="show-tick form-control" title="Please select" data-style="btn-solid" name="main_category" id="main_category" name="main_category" required>
                                                 <option value="">Select Category</option>  
                                                     <?php
                                                     foreach ($main_cat as $key => $value)
@@ -326,77 +332,81 @@ $url ="http://api.dealord.com/getcategories?id";
                                     <div class="row">
                                         <div class="col-sm-6 form-group mb-4" id="p_name">
                                             <label>Product Name</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Enter Product Name" name="p_name">
+                                            <input class="form-control form-control-solid" type="text" placeholder="Enter Product Name" name="p_name" required>
                                         </div>
                                         <div class="col-sm-6 form-group mb-4" id ="sc_id">
                                             <label>SKU</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="SKU Number" name ="sc_id" >
+                                            <input class="form-control form-control-solid" type="number" placeholder="SKU Number" name ="sc_id" required >
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group mb-4" id ="Length_Unit">
                                             <label>Length Unit</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                            <input class="form-control form-control-solid" type="text" placeholder="Length Unit" name="Length_Unit" required>
                                         </div>
                                         <div class="col-sm-6 form-group mb-4" id="Weight_unit">
                                                 <label>Wieght Unit</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                                <input class="form-control form-control-solid" type="text" placeholder="Weight unit" name="Weight_unit" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 form-group mb-4" id ="price">
                                             <label>Price</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price" name="price" required >
                                         </div>
                                         <div class="col-sm-6 form-group mb-4" id="brand">
-                                                <label>Brand</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                                <label>Brand</label> 
+                                                <input class="form-control form-control-solid" type="text" placeholder="Brand Name" name="brand" required>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-3 form-group mb-4" id ="price">
-                                            <label>Price</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
-                                        </div>
-                                        <div class="col-sm-3 form-group mb-4" id="length">
+                                        <div class="col-sm-6 form-group mb-4" id="length">
                                                 <label>Length</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                                <input class="form-control form-control-solid" type="text" placeholder="Length" name="length" required>
                                         </div>
-                                        <div class="col-sm-3 form-group mb-4" id ="width">
+                                        <div class="col-sm-6 form-group mb-4" id ="width">
                                             <label>Width</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                            <input class="form-control form-control-solid" type="text" placeholder="Width" name="width" required>
                                         </div>
-                                        <div class="col-sm-3 form-group mb-4" id="weight">
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-sm-6 form-group mb-4" id="weight">
+                                                <label>Height</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="height" name="height" required>
+                                    </div>
+                                    <div class="col-sm-6 form-group mb-4" id="weight">
                                                 <label>Weight</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
-                                        </div>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Weight" name="weight" required>
+                                    </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 form-group mb-4" id ="color">
                                             <label>Color</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                            <input class="form-control form-control-solid" type="text" placeholder="Product color" name="color" required>
                                         </div>
                                         <div class="col-sm-4 form-group mb-4" id="warranty">
                                                 <label>Warranty</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                                <input class="form-control form-control-solid" type="text" placeholder="Warranty" name="warranty" required>
                                         </div>
                                         <div class="col-sm-4 form-group mb-4" id="warranty_type">
-                                                <label>Warranty_type</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                                <label>Warranty type</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Warranty type" name="warranty_type" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 form-group mb-4" id ="description">
-                                            <label>description</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                            <label>Description</label>
+                                            <textarea class="form-control form-control-solid" rows="4" placeholder="Description" name="description" ></textarea>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 form-group mb-4" id ="extra_feature">
-                                            <label>extra_feature</label>
-                                            <input class="form-control form-control-solid" type="text" placeholder="Unit Price">
+                                            <label>Extra Features</label>
+                                            <textarea class="form-control form-control-solid" rows="4" placeholder="Extra Features" name="extra_feature" ></textarea>
                                         </div>
                                     </div>
+                                    <input class="btn btn-primary btn-air mr-2" type="submit" value="Save" />
+                                    <input class="btn btn-secondary"type="reset" value="Cancel" />
                                 </form>
                             </div>
                         </div>
@@ -445,7 +455,7 @@ $url ="http://api.dealord.com/getcategories?id";
             $('.tagsinput.form-control-solid').siblings('.bootstrap-tagsinput').addClass('form-control-solid');
         });
     </script>
-    <script>
+    <!-- <script>
     function getextrafields(id){
         $.ajax({ url: "getsubcatattr.php",
                 data: {id: id},
@@ -474,10 +484,10 @@ $url ="http://api.dealord.com/getcategories?id";
                 }
                 });
     }
-    </script>
+    </script> -->
     <script>
         $().ready(function() {
-            $('#sb1,#sb2,#Length_Unit,#Weight_unit,#p_name,#sc_id,#price,#brand,#length,#height,#width,#weight,#color,#description,#warranty,#warranty_type,#extra_feature').hide();
+            $('#sb1,#sb2').hide();
             $( "#main_category" ).change(function() {
                 var id = $( "#main_category" ).val();
                 // $("#country option[value='0']").remove();
@@ -489,12 +499,13 @@ $url ="http://api.dealord.com/getcategories?id";
                 function(msg) {
                         if (typeof(msg) == "string"){
                             $('#sb1,#sb2').hide();
-                            getextrafields(id);
+                            // getextrafields(id);
                         }
                         else{
                         $('#sb1').show();
                         $('#sub_category1').find('option').remove().end();
                         $('#sub_category1').append('<option value="">Select Sub Category</option>');
+                        $('#sub_category1').attr("required","required");
                         $.each(msg, function( index, value ) {
                         $('#sub_category1').append('<option value="'+index+'">'+value+'</option>');
                         });
@@ -516,12 +527,13 @@ $url ="http://api.dealord.com/getcategories?id";
                 function(msg) {
                         if (typeof(msg) == "string"){
                             $('#sb2').hide();
-                            getextrafields(id);
+                            // getextrafields(id);
                         }
                         else{
                         $('#sb2').show();
                         $('#sub_category2').find('option').remove().end();
                         $('#sub_category2').append('<option value="">Select Sub Category</option>');
+                        $('#sub_category2').attr("required","required");
                         $.each(msg, function( index, value ) {
                         $('#sub_category2').append('<option value="'+index+'">'+value+'</option>');
                         });
@@ -542,7 +554,7 @@ $url ="http://api.dealord.com/getcategories?id";
                 success:
                 function(msg) {
                         if (typeof(msg) == "string"){
-                            getextrafields(id);
+                            // getextrafields(id);
                         }
                         else{
                         } 

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,AAAC,CACT,IAAI,CAAE,SAAS,CACf,YAAY,CAAE,EAAE,CACjB",
+    "sources": [
+        "../scss/region.scss"
+    ],
+    "names": [],
+    "file": "region.min.css"
+}

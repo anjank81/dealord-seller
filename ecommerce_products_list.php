@@ -46,7 +46,7 @@ if (isset($_SESSION["token"]))
                             </li>
                             <li>
                                 <div class="page-brand">
-                                    <a class="link" href="index.html">
+                                    <a class="link" href="index.php">
                                         <span class="brand">DeaLord
                                             <span class="brand-tip"> SELLER</span>
                                         </span>
@@ -165,10 +165,10 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_add_product.html">Add new product</a>
+                                    <a class="dropdown-item" href="ecommerce_add_product.php">Add new product</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item active" href="ecommerce_products_list.html">Products list</a>
+                                    <a class="dropdown-item active" href="ecommerce_products_list.php">Products list</a>
                                 </li>
                             </ul>
                         </li>
@@ -177,7 +177,7 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="colors.html">Colors</a>
+                                    <a class="dropdown-item" href="colors.php">Colors</a>
                                 </li>
                             </ul>
                         </li>
@@ -186,7 +186,7 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="toastr.html">Toastr Notifications</a>
+                                    <a class="dropdown-item" href="toastr.php">Toastr Notifications</a>
                                 </li>
                             </ul>
                         </li>
@@ -195,13 +195,13 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_orders_list.html">Orders list</a>
+                                    <a class="dropdown-item" href="ecommerce_orders_list.php">Orders list</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_order_details.html">Order details</a>
+                                    <a class="dropdown-item" href="ecommerce_order_details.php">Order details</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="invoice.html">Invoice</a>
+                                    <a class="dropdown-item" href="invoice.php">Invoice</a>
                                 </li>
                             </ul>
                         </li>
@@ -210,7 +210,7 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="ecommerce_customers.html">Customers</a>
+                                    <a class="dropdown-item" href="ecommerce_customers.php">Customers</a>
                                 </li>
                             </ul>
                         </li>
@@ -219,10 +219,10 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="mailbox.html"><i class="navbar-item-icon ti-email"></i>Mailbox</a>
+                                    <a class="dropdown-item" href="mailbox.php"><i class="navbar-item-icon ti-email"></i>Mailbox</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="calendar.html"><i class="navbar-item-icon ti-calendar"></i>Calendar</a>
+                                    <a class="dropdown-item" href="calendar.php"><i class="navbar-item-icon ti-calendar"></i>Calendar</a>
                                 </li>
                             </ul>
                         </li>
@@ -231,7 +231,7 @@ if (isset($_SESSION["token"]))
                                 <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="icons.html"><i class="navbar-item-icon ti-comments-smiley"></i>Icons</a>
+                                    <a class="dropdown-item" href="icons.php"><i class="navbar-item-icon ti-comments-smiley"></i>Icons</a>
                                 </li>
                             </ul>
                         </li>
@@ -269,7 +269,7 @@ if (isset($_SESSION["token"]))
                                     <span class="input-icon input-icon-right font-16"><i class="ti-search"></i></span>
                                     <input class="form-control form-control-rounded form-control-solid" id="key-search" type="text" placeholder="Search ...">
                                 </div>
-                                <a class="btn btn-rounded btn-primary btn-air" href="ecommerce_add_product.html">Add Product</a>
+                                <a class="btn btn-rounded btn-primary btn-air" href="ecommerce_add_product.php">Add Product</a>
                             </div>
                         </div>
                         <div class="table-responsive row">
@@ -653,6 +653,22 @@ if (isset($_SESSION["token"]))
                 table.column(2).search($(this).val()).draw();
             });
         });
+    </script>
+    <script>
+    $('#key-search').keyup(function() {
+        var q = document.getElementById("key-search").value;
+        console.log(q);
+        $.ajax({ url: "search.php",
+                data: {q: q},
+                type: 'get',
+                async: false,
+                success:
+                function(search) {
+                        console.log(search);
+                        }
+                });
+        
+    });
     </script>
 </body>
 
