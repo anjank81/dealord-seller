@@ -67,6 +67,7 @@ if ( (is_numeric ($price) == false) || (is_numeric ($length) == false) || (is_nu
     if(is_numeric ($height) == false)
     {
         $m = "Height Should be a Numeric Value";
+$n = "Height Should be a Numeric Value";
         if ($msg == null)
         {
             $msg = $msg.$m;
