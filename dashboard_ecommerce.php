@@ -278,7 +278,7 @@ if (isset($_SESSION["token"]))
                                 </div>
                                 <div>
                                     <h3 class="font-strong text-pink">1250</h3>
-                                    <div class="text-muted">TODAY'S CUSTOMERS</div>
+                                    <div class="text-muted">TODAY'S Cust</div>
                                 </div>
                             </div>
                         </div>
